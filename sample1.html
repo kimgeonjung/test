@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <input type="text" id="text" />
+    <button id="btn">클릭</button>
+    <div id="field">
+
+    </div>
+    <script>
+        const btn = document.querySelector('#btn');
+        const field = document.querySelector('#field');
+        btn.addEventListener('click', () => {
+            const text = document.querySelector('#text')
+            const p = document.createElement('p');
+            const button = document.createElement('button');
+            const data = document.createElement('div');
+            button.textContent = 'X';
+            button.addEventListener('click', () => {
+                field.removeChild(data);
+            });
+            p.innerText = text.value;
+            text.value = '';
+            data.appendChild(p);
+            data.appendChild(button);
+            field.appendChild(data);
+        });
+    </script>
+</body>
+
+</html>

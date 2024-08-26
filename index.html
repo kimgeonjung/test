@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <input type="text" id="text" />
+    <button id="btn">클릭</button>
+    <div id="field"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btn').on("click", function () {
+                const text = $('#text').val();
+                const field = $('#field');
+                const data = $('<div></div>');
+                const p = $('<p></p>');
+                const button = $('<button>X</button>');
+                button.on("click", function () {
+                    data.remove();
+                });
+                p.text(text);
+                $('#text').val('');
+                data.append(p);
+                data.append(button);
+                field.append(data);
+            });
+        });
+    </script>
+</body>
+
+</html>
